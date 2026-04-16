@@ -1,16 +1,13 @@
 # Godot 4
 .godot/
-*.godot
-.import/
-icon.svg
 icon.svg.import
 
-# Build / export
+# Export
 export/
 export.cfg
 export_presets.cfg
 
-# Mono 
+# Mono
 .mono/
 data_*/
 
@@ -21,5 +18,3 @@ data_*/
 .DS_Store
 Thumbs.db
 
-# Editor local state
-*.translation
