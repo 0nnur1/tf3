@@ -1,0 +1,25 @@
+# Godot 4
+.godot/
+*.godot
+.import/
+icon.svg
+icon.svg.import
+
+# Build / export
+export/
+export.cfg
+export_presets.cfg
+
+# Mono 
+.mono/
+data_*/
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor local state
+*.translation
