@@ -1,21 +1,28 @@
+
 # Godot 4
 .godot/
-icon.svg.import
+.import/
+*.uid
 
 # Export
 export/
 export.cfg
 export_presets.cfg
 
-# Mono
+# Mono (C#)
 .mono/
 data_*/
 
 # Logs
 *.log
 
+# Imports
+*.import
+
 # OS junk
 .DS_Store
 Thumbs.db
 
-	
+# Temp files
+*.tmp
+*.bak
