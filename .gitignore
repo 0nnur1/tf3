@@ -1,28 +1,20 @@
+# Godot-specific ignores
+.godot/       
 
-# Godot 4
-.godot/
-.import/
-*.uid
+# DO NOT ignore .import files 
+# DO NOT ignore .uid files
 
-# Export
+# Ignore the actual imported data cache
+.import/ 
+
+# Export templates and binaries
 export/
 export.cfg
 export_presets.cfg
 
-# Mono (C#)
-.mono/
-data_*/
-
-# Logs
+# Common junk
 *.log
-
-# Imports
-*.import
-
-# OS junk
-.DS_Store
-Thumbs.db
-
-# Temp files
 *.tmp
 *.bak
+.DS_Store
+Thumbs.db

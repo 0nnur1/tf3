@@ -15,6 +15,8 @@ var headbob_time: float = 0
 
 
 # Called when the node enters the scene tree for the first time.
+func get_move_speed() -> float:
+	return sprint_speed if Input.is_action_just_pressed("player_sprint") else walk_speed
 
 func _ready() -> void:
 	for child in %model.find_children("*", "VisualInstance3D"):
@@ -46,8 +48,6 @@ func _handle_air_physics(_delta: float) -> void:
 	self.velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * _delta
 
 func _handle_ground_physics(_delta: float) -> void:
-	self.velocity.x = wish_dir.x * (sprint_speed if Input.is_action_pressed("player_sprint") else walk_speed)
-	self.velocity.z = wish_dir.z * (sprint_speed if Input.is_action_pressed("player_sprint") else walk_speed)
 	if Input.is_action_just_pressed("player_jump"):
 		self.velocity.y = jump_velocity
 
@@ -64,5 +64,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED: # rotates chamera if mouse is captured
 		if event is InputEventMouseMotion:
 			rotate_y(deg_to_rad(-event.relative.x * look_sensitivity))
-			%Camera3D.rotate_x(deg_to_rad(-event.relative.y * look_sensitivity))
-			%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			%camera.rotate_x(deg_to_rad(-event.relative.y * look_sensitivity))
+			%camera.rotation.x = clamp(%camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))

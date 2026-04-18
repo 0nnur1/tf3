@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="project"
+config/name="tf3"
 run/main_scene="uid://cidyb2628hrdk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -22,6 +22,15 @@ window/size/viewport_height=180
 window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://humanoid/": "gray",
+"res://humanoid/camera/": "blue",
+"res://humanoid/movement/": "red",
+"res://humanoid/player/": "teal"
+}
 
 [input]
 

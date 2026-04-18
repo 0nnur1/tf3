@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://dt1mkv0bd6irs"]
 
-[ext_resource type="Script" uid="uid://fc6b8qprhif8" path="res://scripts/charecter_body_default.gd" id="1_iel1r"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdhf2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_iel1r"]
 
-[node name="CharecterBodyDefault" type="CharacterBody3D" unique_id=435226824]
+[node name="humanoid_body" type="CharacterBody3D" unique_id=435226824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0007402, 0)
-script = ExtResource("1_iel1r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=882839875]
 shape = SubResource("CapsuleShape3D_fdhf2")
@@ -23,7 +20,7 @@ mesh = SubResource("CapsuleMesh_iel1r")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68887246, 0)
 
-[node name="Camera3D" type="Camera3D" parent="head" unique_id=1758042948]
+[node name="camera" type="Camera3D" parent="head" unique_id=1758042948]
 unique_name_in_owner = true
 cull_mask = 1048573
 current = true
