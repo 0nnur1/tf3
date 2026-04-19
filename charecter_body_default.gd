@@ -1,10 +1,6 @@
 extends CharacterBody3D
 
-@export var look_sensitivity: float = 0.1
-@export var jump_velocity: float = 6
-@export var auto_bhop: bool = true
-@export var walk_speed: float = 7
-@export var sprint_speed: float = 8.5
+
 
 var wish_dir: Vector3 = Vector3.ZERO
 

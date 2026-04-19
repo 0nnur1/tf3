@@ -15,6 +15,10 @@ run/main_scene="uid://cidyb2628hrdk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+settings_manager="*uid://dmkc8wyxkkejt"
+
 [display]
 
 window/size/viewport_width=320
@@ -29,7 +33,8 @@ folder_colors={
 "res://humanoid/": "gray",
 "res://humanoid/camera/": "blue",
 "res://humanoid/movement/": "red",
-"res://humanoid/player/": "teal"
+"res://humanoid/player/": "teal",
+"res://player settings/": "teal"
 }
 
 [input]
