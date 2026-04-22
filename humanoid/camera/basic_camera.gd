@@ -1,19 +1,17 @@
 const MAX_PITCH: float = 85.0
 
 ## Returns a new rotation Vector3 rotated by [param deg] on the Y-axis.
-func get_turn_y(current_rotation: Vector3, deg: float) -> Vector3:
-	var new_rotation = current_rotation
-	new_rotation.y += deg_to_rad(deg)
-	return new_rotation
+func get_turn_y(current_rotation: Vector3, deg: float, delta: float) -> Vector3:
+	current_rotation.y += deg_to_rad(deg*delta)
+	return current_rotation
 
-## Returns a new rotation Vector3 rotated by [param deg] on the X-axis, 
+## Returns a new rotation Vector3 rotated by [param deg] on the X-axis. 
 ## - optionally clamped between -[param limit] and [param limit].
-func get_turn_x(current_rotation: Vector3, deg: float, do_limit: bool = true, limit: float = MAX_PITCH) -> Vector3:
-	var new_rotation = current_rotation
-	new_rotation.x += deg_to_rad(deg)
+func get_turn_x(current_rotation: Vector3, deg: float, delta: float, do_limit: bool = true, limit: float = MAX_PITCH) -> Vector3:
+	current_rotation.x += deg_to_rad(deg*delta)
 	
 	if do_limit:
-		var limit_rad = deg_to_rad(limit)
-		new_rotation.x = clamp(new_rotation.x, -limit_rad, limit_rad)
+		var limit_rad := deg_to_rad(limit)
+		current_rotation.x = clamp(current_rotation.x, -limit_rad, limit_rad)
 		
-	return new_rotation
+	return current_rotation
