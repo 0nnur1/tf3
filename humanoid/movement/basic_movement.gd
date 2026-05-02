@@ -48,24 +48,37 @@ func get_wall_hop(
 ## Applies slide behavior: keeps momentum, adds a small boost, and reduces speed over time.
 func get_slide(
 	velocity: Vector3,
+	floor_normal: Vector3,
 	move_dir: Vector3,
 	boost: float,
 	friction: float,
+	gravity: float,
 	delta: float
 ) -> Vector3:
 
-	# 1. Flatten to horizontal
+	# 1. Horizontal velocity 
 	var horizontal := Vector3(velocity.x, 0.0, velocity.z)
 
-	# 2. Add slide boost in movement direction
+	# 2. Entry / steering boost 
 	if move_dir.length() > 0.0:
-		var dir := move_dir.normalized()
-		horizontal += dir * boost
+		horizontal += move_dir.normalized() * boost
 
-	# 3. Apply friction (slow down over time) 
+	# 3. Downhill direction from surface normal 
+	var downhill := Vector3(floor_normal.x, 0.0, floor_normal.z)
+
+	if downhill.length() > 0.001:
+		downhill = downhill.normalized()
+
+		# 3.1. slope strength: 0 on flat, increases as surface tilts
+		var slope_strength: float = clamp(1.0 - floor_normal.y, 0.0, 1.0)
+
+		# 3.2. apply gravity along slope
+		horizontal += downhill * gravity * slope_strength * delta
+
+	# 4. Friction (smooth decay)
 	horizontal = horizontal.lerp(Vector3.ZERO, friction * delta)
 
-	# 4. Reapply horizontal back to velocity
+	# 5. Write back 
 	velocity.x = horizontal.x
 	velocity.z = horizontal.z
 
